@@ -5,5 +5,7 @@
 	echo"<a href=exerc02.php target=_blank>Exercicio 2</a>";
 	echo "&#09<a href=exerc03.php target=_blank>Exercicio 3</a>";
 	echo"&#09<a href=exerc04.php target=_blank>Exercicio 4</a>";
+	echo "<br/><br/><br/>";
+	echo "<a href=login.php target=_blank>Área de Login</a>";
 	echo"</strong></pre>";
 ?>
