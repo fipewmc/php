@@ -14,6 +14,7 @@
 			if (isset($_SESSION['msg'])){//verifica se a variavel globar tem valor
 				echo $_SESSION['msg']; // imprime o valor obtido através da variavel global 
 				unset($_SESSION['msg']);// destroi a variavél global.
+				echo "<br/><br/>";
 			}
 		 ?>
 		 <!--Fim de bloco de código em PHP -->
