@@ -10,7 +10,7 @@
 		$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);//recebe a palavra pass, password, senha
 		
 
-		if((!empty($utilizador)) AND (!empty($senha))){
+		if((!empty($utilizador)) AND (!empty($senha))){//verificação se os campos de utilizador e password se encontram preenchidos 
 			
 			
 				//pesquisar utilizador na base de dados
@@ -23,7 +23,6 @@
 					if (password_verify ($senha, $row_utilizador['senha'])){//compara a password digitada com a password guardada na base de dados
 						
 						//para desenvolvimento
-
 						header("Location: administrativo.php");//faz o redirecionamento para a página de administração do site
 					}else{
 						$_SESSION['msg'] = "Login ou Senha Incorreto";//Variavel global para enviar uma mensagem
@@ -31,12 +30,12 @@
 					}
 				}
 
-				//Adicionado para testar outra dorma mais bonita de programar em testes
+			//Adicionado para testar outra dorma mais bonita de programar em testes
 			/*$sql = "SELECT utilizador from utilizadores WHERE utilizador = '$utilizador'";//consulta á base de dados
 				
 			$resultado = mysqli_query($connect, $sql);//obtenção do resultado da consulta.
 			
-			if (mysqli_num_rows($resultado) > 0){//verifica se obtivemos algum resultado
+			if (mysqli_num_rows($resultado) > 0){//verifica se na consulta retornou algum resultado
 				echo "<h1>AKI estou------------</h1>";//para testes
 
 			}else{
@@ -45,7 +44,7 @@
 			}*/
 			
 			
-		}else{
+		}else{//se os campos de utilizador e password não estiverem preenchidos vai ser gerada uma mensagem de erro e redirecionado para a página de login
 			$_SESSION['msg'] = "Login ou Senha Incorreto";//Variavel global para enviar uma mensagem
 			header("Location: login.php");//faz o redirecionamento para a página de login
 		}
