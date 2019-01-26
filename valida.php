@@ -21,29 +21,17 @@
 				if ($resultado_utilizador){// verifica se a variavel $resultado_utilizador tem algum valor
 					$row_utilizador = mysqli_fetch_assoc($resultado_utilizador);//obtenção do valor contido na base de dados
 					if (password_verify ($senha, $row_utilizador['senha'])){//compara a password digitada com a password guardada na base de dados
-						
-						//para desenvolvimento
+						//nas linhas de baixo vamos colocar os dados recebidos da consulta á base de dados e vamos guardar em variaveis globais
+						$_SESSION['id'] = $row_utilizador['id']; // variaveis global para o ID
+						$_SESSION['nome'] = $row_utilizador['nome']; //variaveis global para o nome
+						$_SESSION['email'] = $row_utilizador['email'];//variaveis global para o email
+					
 						header("Location: administrativo.php");//faz o redirecionamento para a página de administração do site
 					}else{
 						$_SESSION['msg'] = "Login ou Senha Incorreto";//Variavel global para enviar uma mensagem
 						header("Location: login.php");//faz o redirecionamento para a página de login
 					}
-				}
-
-			//Adicionado para testar outra dorma mais bonita de programar em testes
-			/*$sql = "SELECT utilizador from utilizadores WHERE utilizador = '$utilizador'";//consulta á base de dados
-				
-			$resultado = mysqli_query($connect, $sql);//obtenção do resultado da consulta.
-			
-			if (mysqli_num_rows($resultado) > 0){//verifica se na consulta retornou algum resultado
-				echo "<h1>AKI estou------------</h1>";//para testes
-
-			}else{
-				$_SESSION['msg'] = "Login ou Senha Incorreto";//Variavel global para enviar uma mensagem
-				header("Location: login.php");//faz o redirecionamento para a página de login
-			}*/
-			
-			
+				}			
 		}else{//se os campos de utilizador e password não estiverem preenchidos vai ser gerada uma mensagem de erro e redirecionado para a página de login
 			$_SESSION['msg'] = "Login ou Senha Incorreto";//Variavel global para enviar uma mensagem
 			header("Location: login.php");//faz o redirecionamento para a página de login
