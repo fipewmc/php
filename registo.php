@@ -10,14 +10,7 @@
 			
 			$dados['senha']= password_hash($dados['senha'], PASSWORD_DEFAULT);//linha para criptografar a senha através da API do PHP
 			
-			//blocos de código para testes
-
-			echo "<br/>informação da senha: ". password_get_info($dados['senha'])."<br/>";
-			// Verifica se o Hash não foi gerado com mesmo algorítimo e opções passados como parâmetro
-			//$options = array;
-			//echo "Verifica se o Hash não foi gerado com as opções informadas: " . password_needs_rehash($dados['senha']), PASSWORD_DEFAULT) . "<br><br>";
-
-
+	
 			//As linhas de baixo servem para fazer uma inserção nda base de dados 
 			$result_utilizador = "INSERT INTO utilizadores (nome, email, utilizador, senha) VALUES (
 			'".$dados['nome']."',
@@ -25,8 +18,6 @@
 			'".$dados['utiliza']."',
 			'".$dados['senha']."'
 			)";
-
-			//INSERT INTO `utilizadores` (`id`, `nome`, `email`, `utilizador`, `senha`) VALUES (NULL, 'aaa', 'aaa', 'aaa', ENCRYPT('123'));
 
 			//A linha de baixo executa a query na base de dados
 			$resultado_utilizador = mysqli_query($connect, $result_utilizador);
