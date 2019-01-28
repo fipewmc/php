@@ -29,7 +29,37 @@
 						$_SESSION['nome'] = $row_utilizador['nome']; //variaveis global para o nome
 						$_SESSION['email'] = $row_utilizador['email'];//variaveis global para o email
 					
-						header("Location: administrativo.php");//faz o redirecionamento para a página de administração do site	
+						header("Location: administrativo.php");//faz o redirecionamento para a página de administração do site
+				
+				//As linhas de código abaixo foram adicionadas e comentadas utilizadas para testes						
+					/*}else{
+						
+						//em testes 
+
+						$senha = password_hash($senha, PASSWORD_DEFAULT);//linha para criptografar a senha através da API do PHP
+						//$senha = md5($senha);//linha para criptografar a senha em md5
+						
+						$sql = "SELECT * FROM utilizadores WHERE utilizador = '$utilizador' AND senha = '$senha'";
+						
+						$resultado_utilizador = mysqli_query($connect, $sql);//Pesquisa na base de dados
+												
+
+						if(mysqli_num_rows($resultado_utilizador) == 1){
+						
+							$row_utilizador = mysqli_fetch_assoc($resultado_utilizador);//obtenção do valor contido na base de dados
+							//nas linhas de baixo vamos colocar os dados recebidos da consulta á base de dados e vamos guardar em variaveis globais
+							$_SESSION['id'] = $row_utilizador['id']; // variaveis global para o ID
+							$_SESSION['nome'] = $row_utilizador['nome']; //variaveis global para o nome
+							$_SESSION['email'] = $row_utilizador['email'];//variaveis global para o email
+							
+							//echo "<h1> Finalmente descubri!!! </h1>";
+							header("Location: administrativo.php");//faz o redirecionamento para a página de administração do site
+
+						}else{
+							$_SESSION['msg'] = "Utilizador ou Senha Incorreto!";//Variavel global para enviar uma mensagem
+							header("Location: login.php");//faz o redirecionamento para a página de login
+						}*/	
+					//Fim das linhas de código de teste		
 					
 					}else{	
 						$_SESSION['msg'] = "Login ou Senha Incorreto!";//Variavel global para enviar uma mensagem

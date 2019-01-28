@@ -6,9 +6,10 @@
 			require_once "conexao.php";//nesta linha está ligada ao ficheiro de conexão á base de dados
 			$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);//vamos receber os dados em forma de array e todos de uma só vez
 			
-			//var_dump($dados);//linha para verificar a variavel dados utilizada para teste
+			//var_dump($dados);//linha utilizada para teste
 			
-			$dados['senha']= password_hash($dados['senha'], PASSWORD_DEFAULT);//linha para criptografar a senha através da API do PHP
+			$dados['pass']= password_hash($dados['pass'], PASSWORD_DEFAULT);//linha para criptografar a senha através da API do PHP			
+			//$dados['pass'] = md5($dados['pass']);// criptografia da senha através de md5
 			
 	
 			//As linhas de baixo servem para fazer uma inserção nda base de dados 
@@ -16,12 +17,12 @@
 			'".$dados['nome']."',
 			'".$dados['email']."',
 			'".$dados['utiliza']."',
-			'".$dados['senha']."'
+			'".$dados['pass']."'
 			)";
 
 			//A linha de baixo executa a query na base de dados
 			$resultado_utilizador = mysqli_query($connect, $result_utilizador);
-			//var_dump($result_utilizador);//linha para verificar a variavel dados utilizada para teste
+			//var_dump($result_utilizador);//linha  utilizada para teste
 
 		}
  ?>
