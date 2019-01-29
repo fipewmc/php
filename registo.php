@@ -23,7 +23,12 @@
 			//A linha de baixo executa a query na base de dados
 			$resultado_utilizador = mysqli_query($connect, $result_utilizador);
 			//var_dump($result_utilizador);//linha  utilizada para teste
-
+			if (mysqli_insert_id($connect)){
+				$_SESSION['msgcad'] = "Utilizador registado com sucesso!";
+				header("Location: login.php");//faz o redirecionamento para a página de login
+			}else{
+				$_SESSION['msg'] = "Erro ao registar o utilizador";
+			}
 		}
  ?>
 <!DOCTYPE html>

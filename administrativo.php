@@ -16,7 +16,7 @@
 			$_SESSION['msg'] = "A sua sessão expirou! <br/><br/>Por favor faça login novamente.";//Variavel global para enviar uma mensagem
 			header("Location: login.php");//faz o redirecionamento para a página de login
 		}
-		echo "Olá ".$_SESSION['nome'].", seja bem vindo<br>";
+		echo "Olá ".$_SESSION['nome'].", seja bem vindo!<br>";
 		echo "<h2> ..: Marcação de Férias :.. </h2>";
 	?>
 		<form action="" method="post">

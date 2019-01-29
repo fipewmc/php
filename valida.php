@@ -1,4 +1,4 @@
-<?php
++<?php
 	session_start(); //inicio de sessão
 	require_once "conexao.php";//nesta linha está ligada ao ficheiro de conexão á base de dados
 

@@ -15,6 +15,11 @@
 				unset($_SESSION['msg']);// destroi a variavél global.
 				echo "<br/><br/>";
 			}
+			if (isset($_SESSION['msgcad'])){//verifica se a variavel globar tem valor
+				echo $_SESSION['msgcad']; // imprime o valor obtido através da variavel global 
+				unset($_SESSION['msgcad']);// destroi a variavél global.
+				echo "<br/><br/>";
+			}
 		 ?>
 			<form action="valida.php" method="post">
 				<label>Utilizador:</label>
